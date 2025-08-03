@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="/mbv1/icons/icon-192x192.png"> 
   <link rel="apple-touch-icon" sizes="512x512" href="/mbv1/icons/icon-512x512.png"> 
   <link rel="manifest" href="/mbv1/manifest.json">
-  <link rel="manifest" href="/maybaldos/sw.js"> 
+  <link rel="manifest" href="/mbv1/sw.js"> 
   <title>Maybal</title> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
   <link href="https://fonts.googleapis.com/css2?family=Padauk&amp;display=swap" rel="stylesheet"> 
@@ -610,7 +610,8 @@
      <div id="imageMetadataDisplay"></div> 
     </div> 
     <div class="editor-canvas-container"> 
-     <canvas id="editorCanvas"></canvas> <button id="prevImageBtn" class="editor-nav-btn prev">◀️</button> <button id="nextImageBtn" class="editor-nav-btn next">▶️</button> 
+     <canvas id="editorCanvas"></canvas> <button id="prevImageBtn" class="editor-nav-btn prev">◀</button>
+     <button id="nextImageBtn" class="editor-nav-btn next">▶</button> 
      <div id="textEditorUI"> <textarea id="textEditorInput"></textarea> 
       <div id="text-resize-handle" class="text-handle"></div> 
       <div id="text-rotate-handle" class="text-handle"></div> 
@@ -734,7 +735,8 @@
                     const folderElement = document.createElement('div');
                     folderElement.className = 'folder';
                     folderElement.dataset.folderId = folder.id;
-                    folderElement.innerHTML = `<input type="checkbox" class="folder-checkbox" data-folder-id="${folder.id}"><div class="folder-icon">📁</div><div class="folder-name">${folder.name}</div>`;
+                    folderElement.innerHTML = `<input type="checkbox" class="folder-checkbox" data-folder-id="${folder.id}">
+                    <div class="folder-icon"><i class="fa-solid fa-receipt"></i></div><div class="folder-name">${folder.name}</div>`;
                     folderElement.addEventListener('click', (e) => {
                         if (isSelectionMode) { e.preventDefault(); const checkbox = folderElement.querySelector('.folder-checkbox'); checkbox.checked = !checkbox.checked; toggleFolderSelection(folder.id, index); } else { openFolder(folder.id); }
                     });
